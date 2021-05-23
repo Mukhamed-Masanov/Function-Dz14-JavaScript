@@ -7,64 +7,254 @@
 <body>
 <script>
     //1
-// let num1 =  +prompt('Введите число') , num2 = +prompt('Введите число')
-// function f(num1 , num2){
-// if( num1 < num2){
-//     return num1;
-// }else if( num1 === num2){
-//     let equal = [];
-//     equal.push(num1 , num2);
-//     return equal;
-// }
-// else {
-//     return num2;
-// }
-// }
-// let result = f(num1 , num2);
-// alert(result);
-//
-// //2
-//    function involveNum(number3 , degree){
-// return  number3 ** degree;
-//    }
-//    let num3 = +prompt('Введите число') , deg = +prompt('Введите степень')
-//     let res = involveNum(num3 , deg);
-//    alert(res);
+    let num1 =  +prompt('Введите число') , num2 = +prompt('Введите число')
+    function f(num1 , num2){
+    if( num1 < num2){
+        return num1;
+    }else if( num1 === num2){
+        let equal = [];
+        equal.push(num1 , num2);
+        return equal;
+    }
+    else {
+        return num2;
+    }
+    }
+    let result = f(num1 , num2);
+    alert(result);
 
-   //3
-   // function calc(number4 , number5 , signMark){
-   //     if( signMark === "+")
-   //     {
-   //         return number4 + number5;
-   //     }
-   //     else if(signMark === "-"){
-   //         return number4 - number5;
-   //     }
-   //     else if(signMark === "*"){
-   //         return number4 * number5;
-   //     }
-   //     else if(signMark === "/"){
-   //         return number4 / number5;
-   //     }
-   // }
-   // let num4 = +prompt("Введите первое число")
-   // let num5 = +prompt("Введите первое число")
-   // let sign = prompt("Введите действие которое хотите произвести");
-   // let result2 = calc(num4,num5,sign);
-   // alert(result2);
+    //2
+       function involveNum(number3 , degree){
+    return  number3 ** degree;
+       }
+       let num3 = +prompt('Введите число') , deg = +prompt('Введите степень')
+        let res = involveNum(num3 , deg);
+       alert(res);
 
-   //4
-   //  function chekPrime(number6){
-   //      for(let i = 2; i < number6; i++)
-   //          if(number6 % i === 0) return 'Составное число';
-   //      return 'Простое число';
-   //  }
-   //  let numb6 = +prompt('Введите число');
-   //  let check = chekPrime(numb6);
-   //  alert(check);
+    //3
+    function calc(number4 , number5 , signMark){
+        if( signMark === "+")
+        {
+            return number4 + number5;
+        }
+        else if(signMark === "-"){
+            return number4 - number5;
+        }
+        else if(signMark === "*"){
+            return number4 * number5;
+        }
+        else if(signMark === "/"){
+            return number4 / number5;
+        }
+    }
+    let num4 = +prompt("Введите первое число")
+    let num5 = +prompt("Введите второе число")
+    let sign = prompt("Введите действие которое хотите произвести");
+    let result2 = calc(num4,num5,sign);
+    alert(result2);
 
+    //4
+     function chekPrime(number6){
+         for(let i = 2; i < number6; i++)
+             if(number6 % i === 0) return 'Составное число';
+         return 'Простое число';
+     }
+     let numb6 = +prompt('Введите число');
+     let check = chekPrime(numb6);
+     alert(check);
+
+     //ПЯТАЯ ЗАДАЧА  В САМОМ КОНЦЕ
+    // ПЯТАЯ ЗАДАЧА  В САМОМ КОНЦЕ
+
+    //6
+        function getRemainder(number8 , number9){
+    return number8 - (Math.trunc(number8/number9) * number9);
+        }
+        let num8 = +prompt('Введите число');
+        let num9 = +prompt('Введите число');
+        let remainder = getRemainder(num8 , num9);
+        alert(  remainder);
+    //7
+    function getAmount(amountNumber) {
+         let array = [];
+        if(isNaN(amountNumber)){
+            return 'Введите коректное значение '
+        }else if (amountNumber > 5 || amountNumber < 1){
+          return 'Количество чисел не должно превышать 5 и быть меньше 1'
+        }else {
+            for (let i = 1; i <= amountNumber; i++) {
+                let j = +prompt('Введите число');
+                if (isNaN(j)){
+                continue;
+                }
+                array.push(j);
+            }
+        }
+        return array.reduce((a,b)=>a+b) ;
+    }
+    let amountOfNumber = +prompt('Введите сколько чисел вы хотели бы ввести')
+    let amount = getAmount(amountOfNumber);
+    alert(amount);
+
+   // 8
+    function compareNumber(amountOfNumber2) {
+        let secondArray = [];
+        if (isNaN(amountOfNumber2)) {
+    return 'Введите коректное значение'
+        } else if (amountOfNumber2 > 5 || amountOfNumber2 < 1) {
+            return 'Количество чисел не должно превышать 5 и быть меньше 1'
+        } else {
+            for (let secondI = 1; secondI <= amountOfNumber2; secondI++) {
+                let j2 = +prompt('Введите число');
+                if (isNaN(j2)) {
+                    continue;
+                }
+                secondArray.push(j2)
+            }
+
+            secondArray.sort(function (a, b) {
+                return a - b;
+            })
+
+        }
+        return secondArray.pop();
+    }
+
+    let amountOfNumber2 = +prompt('Сколько чисел вы хотите ввести ?')
+    let amount2 = compareNumber(amountOfNumber2);
+    alert(amount2);
+
+    //9
+    function checkParity(startPoint, endPoint, stringBoolean) {
+        let array3 = [];
+        if (stringBoolean !== 1 && stringBoolean !== 0){
+           return 'Допустим ввод только 0 и 1'
+        }
+            let boolean = !!stringBoolean;
+            if (isNaN(startPoint) || isNaN(endPoint)) {
+                return 'Введены некорректные значения'
+            } else if (startPoint === endPoint) {
+                return 'Точка отсчета и конца совпадают';
+            }
+            if (boolean === true) {
+                if (startPoint > endPoint) {
+                    for (let i = startPoint; i >= endPoint; i--) {
+                        if (i % 2 !== 0) {
+                            continue;
+                        }
+                        array3.push(i)
+                    }
+                } else {
+                    for (let i2 = startPoint; i2 <= endPoint; i2++) {
+                        if (i2 % 2 !== 0) {
+                            continue;
+                        }
+                        array3.push(i2);
+                    }
+                }
+                return array3;
+
+            } else if (boolean === false) {
+                if (startPoint > endPoint) {
+                    for (let j = startPoint; j >= endPoint; j--) {
+                        if (j % 2 === 0) {
+                            continue;
+                        }
+                        array3.push(j)
+                    }
+                } else {
+                    for (let j2 = startPoint; j2 <= endPoint; j2++) {
+                        if (j2 % 2 === 0) {
+                            continue;
+                        }
+                        array3.push(j2)
+                    }
+                }
+                return array3;
+            }
+    }
+
+    let startPoint = +prompt('Введите точку отсчета')
+    let endPoint = +prompt('Введите точку конца')
+    let stringBoolean = +prompt('Введите 1 если хотите вывести четные числа , чтобы вывести нечетные числа введите 0 ');
+    let parity = checkParity(startPoint, endPoint, stringBoolean);
+    alert(parity);
+
+    //10
+    let day = +prompt('Введите номер дня')
+    let month = +prompt('Введите номер месяца')
+    let year = +prompt('Введите год')
+    function checkLeapYear(year) {
+return year % 4 === 0;
+    }
+    function getNextDay(day, month, year) {
+        if (year <= 0) {
+            return 'Введено неправильое значение'
+        }
+        if (month < 1 || month > 12) {
+            return 'Введены неправильные значения'
+        }
+        if (day < 1 || day > 31) {
+            return 'Введены неправильные значения'
+        }
+let numberOfDay = 0;
+        switch (month) {
+            case 1 :
+                numberOfDay = 31;
+                break;
+            case 2 :
+                checkLeapYear(year) === true ? numberOfDay = 29 : numberOfDay = 28;
+                break;
+            case 3 :
+                numberOfDay = 31;
+                break;
+            case 4 :
+                numberOfDay = 30;
+                break;
+            case 5 :
+                numberOfDay = 31;
+                break;
+            case 6 :
+                numberOfDay = 30;
+                break;
+            case 7 :
+                numberOfDay = 31;
+                break;
+            case 8 :
+                numberOfDay = 31;
+                break;
+            case 9 :
+                numberOfDay = 30;
+                break;
+            case 10 :
+                numberOfDay = 31;
+                break;
+            case 11 :
+                numberOfDay = 30;
+                break;
+            case 12 :
+                numberOfDay = 31;
+        }
+
+if (day > numberOfDay){
+    return `${year} в  ${month} месяце  нет ${day} дней`
+}
+
+        if (day !== numberOfDay)
+            day++;
+        else if (month !== 12) {
+            day = 1;
+            month++;
+        } else {
+            day = month = 1;
+            year++;
+        }
+        return `Следующий день ${day}.${month}.${year}`;
+    }
+    let result5 = getNextDay(day, month, year);
+    alert(result5);
     //5
-    function f(number7){
+    function f2(number7){
         let j = 0;
         let i =2;
         if(isNaN(number7)){
@@ -75,14 +265,13 @@
         else {
             for (; i <= 9; i++) {
                 j = number7 * i;
-                document.write(`${number7} * ${i} = ${j}<br>`);
+                document.write(`${number7} * ${i} = ${j.toFixed(2)}<br>`);
             }
         }
-       return j;
+        return j;
     }
-
     let num7 = +prompt('Введите число')
-    f(num7);
+    f2(num7);
 </script>
 </body>
 </html>
